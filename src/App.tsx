@@ -1,11 +1,17 @@
+import { ApolloProvider } from '@apollo/client';
 import React from 'react';
+import client from './apolloClient';
 import './App.css';
+import Repositories from './components/Repositories';
 
-function App() {
+function App(): JSX.Element {
   return (
-    <div className="App">
-      test
-    </div>
+    <ApolloProvider client={client}>
+      <div className='container'>
+        <h1>Github Repositories</h1>
+        <Repositories />
+      </div>
+    </ApolloProvider>
   );
 }
 

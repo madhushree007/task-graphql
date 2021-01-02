@@ -8,7 +8,7 @@ import './Repositories.css';
 
 export default function Repositories (): JSX.Element {
   const { loading, error, data, fetchMore} = useQuery(GET_REPOSITORIES, {
-    variables: { query: "language:Javascript", after: null}
+    variables: { after: null}
   });
   
 

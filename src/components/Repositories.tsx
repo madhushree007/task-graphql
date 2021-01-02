@@ -8,7 +8,7 @@ import './Repositories.css';
 
 export default function Repositories (): JSX.Element {
   const { loading, error, data, fetchMore} = useQuery(GET_REPOSITORIES, {
-    variables: { after: null}
+    variables: { query: "language:Javascript", after: null}
   });
   
 
@@ -44,7 +44,7 @@ export default function Repositories (): JSX.Element {
 
   if (data) { 
   return (
-
+    <div>
     <table className='table'>
       <thead className="thead-dark">
       <tr>
@@ -64,6 +64,11 @@ export default function Repositories (): JSX.Element {
       </tbody>
     </table>
     
-    
+    <div className='moreBtn'>
+      <button 
+        onClick={() => handleMore(data.search.pageInfo.endCursor)}
+        className='btn btn-primary'>LOAD MORE</button>
+      </div>
+    </div>
   )}
 }

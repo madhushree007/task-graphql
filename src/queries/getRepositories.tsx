@@ -1,10 +1,10 @@
 import { gql } from "@apollo/client";
 
 export const GET_REPOSITORIES = gql`
-  query getRepositories($after: String) {
+  query getRepositories($query: string, $after: String) {
     search(
       type: REPOSITORY
-      query: "language:Javascript"
+      query: $query
       first: 10
       after: $after
     ) {

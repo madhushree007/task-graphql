@@ -1,6 +1,6 @@
 export interface Iprops {
   name: string
-  url: String
+  url: string
   id: Number
   stargazers: {
     totalCount: Number

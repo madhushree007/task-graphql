@@ -1,0 +1,41 @@
+{
+  "search": {
+    "nodes": [
+      {
+        "id": "ID1",
+        "name": "Test Case 1",
+        "url": "https://github.com/madhushree007",
+        "descriptionHTML": "<div>This is a test case</div>",
+        "stargazers": {
+          "totalCount": 123456,
+          "__typename": "StargazerConnection"
+        },
+        "forks": {
+          "totalCount": 7876,
+          "__typename": "RepositoryConnection"
+        },
+        "__typename": "Repository"
+      },
+      {
+        "id": "ID2",
+        "name": "Test Case2",
+        "url": "https://github.com/madhushree007",
+        "descriptionHTML": "<div>This is a test case</div>",
+        "stargazers": {
+          "totalCount": 123456,
+          "__typename": "StargazerConnection"
+        },
+        "forks": {
+          "totalCount": 7876,
+          "__typename": "RepositoryConnection"
+        },
+        "__typename": "Repository"
+      }
+    ],
+    "pageInfo": {
+      "endCursor": "Y3Vyc29yOjE=",
+      "__typename": "PageInfo"
+    },
+    "__typename": "SearchResultItemConnection"
+  }
+}

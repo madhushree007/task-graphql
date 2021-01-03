@@ -8,9 +8,10 @@ import './Repositories.css';
 
 export default function Repositories(): JSX.Element {
     const { loading, error, data, fetchMore } = useQuery(GET_REPOSITORIES, {
-        variables: { first: 2, after: null },
+        variables: { first: 10, after: null },
     });
 
+    // gets next 10 data from endcursor
     const handleMore = (endCursor) => {
         fetchMore({
             variables: { after: endCursor },
@@ -21,6 +22,7 @@ export default function Repositories(): JSX.Element {
         });
     };
 
+    // if query is in loading state, show the "Loading..." text
     if (loading) {
         return (
             <div>
@@ -29,6 +31,7 @@ export default function Repositories(): JSX.Element {
         );
     }
 
+    // if query returns error, it throws error on the page
     if (error) {
         return (
             <div>
@@ -37,6 +40,7 @@ export default function Repositories(): JSX.Element {
         );
     }
 
+    // if query return data then it renders on the screen
     if (data) {
         return (
             <div>
@@ -71,6 +75,7 @@ export default function Repositories(): JSX.Element {
                     </tbody>
                 </table>
 
+                {/* Load more button */}
                 <div className="moreBtn">
                     <button onClick={() => handleMore(data.search.pageInfo.endCursor)} className="btn btn-primary">
                         LOAD MORE

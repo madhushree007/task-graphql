@@ -23,3 +23,27 @@ export const GET_REPOSITORIES = gql`
         }
     }
 `;
+
+export const GET_REPOSITORIES_FILTER = gql`
+    query getRepositories($queryString: String!) {
+        search(query: $queryString, type: REPOSITORY, first: 10) {
+            nodes {
+                ... on Repository {
+                    id
+                    name
+                    url
+                    descriptionHTML
+                    stargazers {
+                        totalCount
+                    }
+                    forks {
+                        totalCount
+                    }
+                }
+            }
+            pageInfo {
+                endCursor
+            }
+        }
+    }
+`;

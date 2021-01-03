@@ -1,9 +1,9 @@
 import { MockedProvider } from '@apollo/client/testing';
-import { cleanup, render, waitFor } from '@testing-library/react';
+import { cleanup, render } from '@testing-library/react';
 import React from 'react';
 import Repositories from '../components/Repositories';
 import { GET_REPOSITORIES } from '../queries/getRepositories';
-import singleResponse from './mocks/response.json';
+import mockResponse from './mocks/response.json';
 
 afterEach(cleanup);
 
@@ -11,9 +11,9 @@ const mocks = [
     {
         request: {
             query: GET_REPOSITORIES,
-            variables: { first: 2, after: null },
+            variables: { first: 10, after: null },
         },
-        result: { data: singleResponse },
+        result: { data: mockResponse },
     },
 ];
 
@@ -24,7 +24,10 @@ it('renders repo', async () => {
         </MockedProvider>,
     );
     expect(getByText('Loading.....')).toBeInTheDocument();
-    await waitFor(() => getByText('Test Case1'));
-    const repoTag = await findByText('Test Case1');
-    expect(repoTag).toBeInTheDocument();
+
+    expect(await findByText('Test Case1')).toBeInTheDocument();
+
+    mockResponse.search.nodes.forEach((post) => {
+        expect(getByText(post.name)).toBeInTheDocument();
+    });
 });

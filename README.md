@@ -1,6 +1,6 @@
 # List of Github Repository with Graphql
 
-The app renders the list of react repositoires. 
+The app renders the list of Javascript repositoires using github graphql API. There is 'Load More' button which fetches more data. The docker image has been created and available on docker hub.
 
 ## Tech Stack
 
@@ -11,6 +11,9 @@ The app renders the list of react repositoires.
 ♦ Docker
 
 ```
+## Lintig and Formating
+
+ESlint has been used for linting and Prettier has been used for code formatting. Husky and lint-staged prevents ESLint and formatting errors from being committed.
 
 ### Instructions to run the app from Github
 
@@ -29,9 +32,3 @@ The app renders the list of react repositoires.
 2. docker pull madhushree25/graphql:graphql
 
 3. docker run -p 3001:3000 madhushree25/graphql:graphql
-
-
-
-
-
-
